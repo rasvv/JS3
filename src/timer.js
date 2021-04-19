@@ -1,49 +1,45 @@
-// import {Duration} from './luxon.js';
-import { Howl } from './howler.js';
+import './howler.js';
 
-
-const timerForm = document.getElementById('timer');
-// let timerInput = document.getElementById("time"); 
-// let buttonRun = document.getElementById("timerBtn");
+let time = document.getElementById("time"); 
+let buttonRun = document.getElementById("timerBtn");
 let timerShow = document.getElementById("timer__result"); 
-
-let timeMinut = '';
+import { formatError } from './utils.js';
 
 let sound = new Howl({
-    src: ['./sounds/sound.mp3']
+    src: ['./src/sounds/alarm.mp3']
   });
+
+let timer = null;
   
-  
-
-const startTimer = event => {
-    event.preventDefault(); 
-    timerShow.innerHTML = '';
-    console.log('timer is srarted');
-
-    let { time } = event.target.elements;
-    time = time.value*60;
-    console.log(time);   
-
-    let timer = setInterval(function () {
+const startTimer = () => {
+    timer = setInterval(() => {
         let seconds = time%60
         let minutes = time/60%60
         let hour = time/60/60%60
 
         if (time <= 0) {
-            // Таймер удаляется
             clearInterval(timer);
-            // Выводит сообщение что время закончилось
+				showText(formatError('Время закончилось!'));
+				buttonRun.innerHTML = 'Стоп'; 
             sound.play();
-            alert("Время закончилось");
-        } else { // Иначе
-            // Создаём строку с выводом времени
-            let strTimer = `${Math.trunc(hour)}:${Math.trunc(minutes)}:${seconds}`;
-            // Выводим строку в блок для показа таймера
-            timerShow.innerHTML = strTimer;
+        } else {
+            showText(`${Math.trunc(hour)}:${Math.trunc(minutes)}:${seconds}`);
         }
         --time;
     }, 1000);
-
 };
 
-timerForm.addEventListener('submit', startTimer);
+const showText = (str) => {
+	timerShow.innerHTML = str;
+};
+
+buttonRun.addEventListener('click', () => {
+	buttonRun.innerHTML = buttonRun.innerHTML === 'Старт' ? 'Стоп' : 'Старт';
+	if (buttonRun.innerHTML === 'Старт') {
+		clearInterval(timer);
+		showText('');
+	} else {
+		time = time.value*60;
+		startTimer();
+	}
+});
