@@ -1,5 +1,15 @@
-import { diffDates, diffToHTML } from './diffdates.js';
-import { formatError } from './utils.js';
+// import { diffDates, diffToHTML } from './diffdates.js';
+// import { formatError } from './utils.js';
+import { loadScript } from './load.js';
+
+loadScript('./src/diffdates.js', () => {
+    console.log('diffdates.js')
+    loadScript('./src/utils.js', () => {
+        dateCalcForm.addEventListener('submit', dateDiff);
+        console.log('utils.js')
+    });
+});
+
 
 const dateCalcForm = document.getElementById('datecalc');
 const dateCalcResult = document.getElementById('datecalc__result');
@@ -18,4 +28,4 @@ const dateDiff = event => {
     else dateCalcResult.innerHTML = formatError('Для расчета промежутка необходимо заполнить оба поля');
 };
 
-dateCalcForm.addEventListener('submit', dateDiff);
+// dateCalcForm.addEventListener('submit', dateDiff);
