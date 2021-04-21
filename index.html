@@ -6,10 +6,13 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>DateTime SuperApp</title>
+		<script src="./src/load.js"></script>
+
+
 	</head>
 
 	<body>
-		<form id='datecalc'>
+		<form id='datecalcform'>
 			<h3>Калькулятор дат</h3>
 			<label>
 				<strong>Первая дата: </strong>
@@ -19,22 +22,21 @@
 				<strong>Вторая дата: </strong>
 				<input type='date' name='secondDate'>
 			</label>
-			<button type='submit'>Рассчитать промежуток</button>
+			<button type='submit' id='datecalc'>Рассчитать промежуток</button>
 			<p id='datecalc__result'></p>
 		</form>
 
-		<div id='timer'>
+		<form id='timerform'>
 			<h3>Таймер</h3>
 			<label>
 				<strong>Введите количество минут: </strong>
 				<input type='number' name='interval' id='time'>
 			</label>
-			<button id='timerBtn'>Старт</button>
+			<button type='submit' id='timerBtn'>Старт</button>
 			<p id='timer__result'></p>
-		</div>
+		</form>
 
-        <!-- <script type='module' src="./src/load.js"></script> -->
-        <script type='module' src="./src/main.js"></script>
+		<script src="./src/main.js"></script>
 	</body>
 
 </html>
