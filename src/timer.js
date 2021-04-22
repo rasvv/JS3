@@ -1,5 +1,7 @@
 // import './howler.js';
 loadScript('./src/howler.js', () => {console.log('howler.js')});
+
+
 loadScript('./src/utils.js', () => {console.log('utils.js')});
 
 let time = document.getElementById("time"); 
@@ -7,9 +9,9 @@ let buttonRun = document.getElementById("timerBtn");
 let timerShow = document.getElementById("timer__result"); 
 
 
-let sound = new Howl({
-    src: ['./src/sounds/alarm.mp3']
-  });
+	let sound = new Howl({
+		src: ['./src/sounds/alarm.mp3']
+	 });
 
 let timer = null;
   
