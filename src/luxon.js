@@ -7362,7 +7362,7 @@ function friendlyDateTime(dateTimeish) {
   }
 }
 
-// export { DateTime };
+export { DateTime };
 // export { Duration };
 // export { FixedOffsetZone };
 // export { IANAZone };

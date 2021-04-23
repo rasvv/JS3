@@ -13,8 +13,8 @@
 
 	<body>
 		<div class="buttons">
-			<button id='btnCurrentFormCalc'>Калькулятор дат</button>
-			<button id='btnCurrentFormTimer'>Таймер</button>
+			<button class='switchbtn' id='btnCurrentFormCalc' style='background :lime'>Калькулятор дат</button>
+			<button class='switchbtn' id='btnCurrentFormTimer'>Таймер</button>
 		</div>
 		<div id="currentform">
 			<form id='datecalcform'>
@@ -35,7 +35,7 @@
 				<h3>Таймер</h3>
 				<label>
 					<strong>Введите количество минут: </strong>
-					<input type='number' name='interval' id='time'>
+					<input type='number' name='interval' id='time' value='1' min='1'>
 				</label>
 				<button type='submit' id='timerBtn'>Старт</button>
 				<p id='timer__result'></p>
