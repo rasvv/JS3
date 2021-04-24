@@ -1,4 +1,4 @@
-import './howler.js';
+import { Howl } from './howler.js';
 import { formatError } from './utils.js';
 
 let buttonRun = document.getElementById("timerBtn");

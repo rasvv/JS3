@@ -1,3 +1,4 @@
+import './styles/style.sass'
 import {changeForm} from './changeForm.js';
 import { dateDiff } from './datecalc.js';
 import { runTimer } from './timer.js';
