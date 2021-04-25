@@ -10,7 +10,7 @@ module.exports = {
 		filename: 'main.[contenthash].js'
 	},
 	plugins: [
-		// new BundleAnalyzerPlugin(),
+		new BundleAnalyzerPlugin(),
 		new HtmlWebpackPlugin({
 			template: resolve(__dirname, 'index.html')
 		})
